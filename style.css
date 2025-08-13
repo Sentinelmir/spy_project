@@ -184,6 +184,7 @@ button:active {
     font-size: 1em;
     font-family: 'Playfair Display SC', serif;
     gap: 5em;
+    cursor: pointer;
 }
 
 .buttons_for_word button:disabled {
@@ -205,6 +206,7 @@ button:active {
     gap: 5em;
     margin-top: 3em;
     margin-bottom: 2em;
+    cursor: pointer;
 }
 
 
@@ -232,7 +234,7 @@ button:active {
     }
 
     input{
-        padding-top: 0;
+        padding-top: 0.1em;
         font-size: 0.8em;
     }
 

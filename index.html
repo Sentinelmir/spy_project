@@ -9,7 +9,7 @@
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <div class="first_section">
+    <div class="first_section" id="first_section_id">
         <div class="header">
             <!-- Иконка шпиона -->
             <i class="fa-solid fa-user-secret fa-4x"></i>
@@ -32,11 +32,12 @@
 
 
             <div class="pair">
-                <label for="category" id="not_buttons">Категория:</label>
+                <label for="category" id="not_buttons" required>Категория:</label>
                 <select id="category">
+                    <option selected disabled></option>
                     <option value="places">Места</option>
                     <option value="hobbies">Хобби</option>
-                    <option value="random">Еда</option>
+                    <option value="food">Еда</option>
                 </select>
             </div>
         </div>
@@ -48,7 +49,7 @@
         </div>
     </div>
 
-    <div class="section_two hidden">
+    <div class="section_two hidden" id="second_section_id">
         <div class="current_player_number">
             <p>Очередь игрока:</p>
         </div>
@@ -71,7 +72,7 @@
 
     </div>
 
-    <script src="script.js"></script>
+    <script src="skript.js"  type="text/javascript"></script>
     
 </body>
 </html>

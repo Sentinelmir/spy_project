@@ -10,6 +10,7 @@ let currentPlayer = 1;
 const currentPlayerField = document.querySelector('.current_player_p');
 let currentWordText = document.querySelector('.current_word_text');
 let spyMassive = [];
+let spiesText = document.querySelector('#spiesnumber');
 
 const words = {
   places: [
@@ -47,7 +48,7 @@ function getRandomInt(max) {
 function getTheSpyNumber(totalPlayers, spyCount){
     while (spyMassive.length < spyCount) {
         let randomIndex = Math.floor(Math.random() * totalPlayers);
-        if (!spyMassive.includes(randomIndex)) {
+        if (!spyMassive.includes(randomIndex+1)) {
             spyMassive.push(randomIndex+1);
         }}
 }
@@ -64,6 +65,13 @@ function startNewGame(e){
     const playersNumber = numberOfPlayers.value.trim();
     const spiesNumber = numberOfSpies.value.trim();
     const theme = themeSelector.value.trim();
+
+    if (Number(spiesNumber) >= Number(playersNumber)){
+        spiesText.classList.add('warning');
+        return;
+    } else {
+        spiesText.classList.remove('warning');
+    }
 
     if (!playersNumber || !spiesNumber || !theme) {
         return;

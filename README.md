@@ -20,4 +20,4 @@ Planned Features:
 - Possibly add a "room" feature so each player can view their word on their own phone
 
 How to Run
-Simply open index.html in your browser or host the project on any static hosting service (e.g., GitHub Pages).
+You can try to play here --> https://spygameproject.netlify.app/

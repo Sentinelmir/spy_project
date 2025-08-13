@@ -6,6 +6,10 @@ const newGameBtn = document.querySelector('#start_new_game');
 const showWordBtn = document.querySelector('#show_word_button');
 const hideWordBtn = document.querySelector('#hide_word_button');
 let word;
+let currentPlayer = 1;
+const currentPlayerField = document.querySelector('.current_player_p');
+let currentWordText = document.querySelector('.current_word_text');
+let spyMassive = [];
 
 const words = {
   places: [
@@ -33,12 +37,25 @@ const words = {
 
 function getRandomWord(category) {
   const categoryWords = words[category];
-  const randomIndex = Math.floor(Math.random() * categoryWords.length);
+  const randomIndex = getRandomInt(categoryWords.length);
   return categoryWords[randomIndex];
+}
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
+function getTheSpyNumber(totalPlayers, spyCount){
+    while (spyMassive.length < spyCount) {
+        let randomIndex = Math.floor(Math.random() * totalPlayers);
+        if (!spyMassive.includes(randomIndex)) {
+            spyMassive.push(randomIndex+1);
+        }}
 }
 
 startGameBtn.addEventListener('click', startNewGame);
 newGameBtn.addEventListener('click', endTheGame);
+showWordBtn.addEventListener('click', showWordToPlayer);
+hideWordBtn.addEventListener('click', hideWordFromPlayer);
 
 
 function startNewGame(e){
@@ -57,8 +74,45 @@ function startNewGame(e){
     hideWordBtn.disabled = true;
     word = getRandomWord(theme);
 
+    getTheSpyNumber(Number(playersNumber), Number(spiesNumber));
+
+    currentPlayerField.textContent = `Очередь игрока: ${currentPlayer}`;
+
     console.log(word);
 
+}
+
+function showWordToPlayer(e){
+    e.preventDefault();
+
+    hideWordBtn.disabled = false;
+    showWordBtn.disabled = true;
+
+    if (!spyMassive.includes(currentPlayer)) {
+        currentWordText.textContent = word;
+    } else {
+        currentWordText.textContent = "Ты шпион!";
+    }
+
+}
+
+function hideWordFromPlayer(e){
+    e.preventDefault();
+
+    if (currentPlayer == Number(numberOfPlayers.value.trim())){
+        hideWordBtn.disabled = true;
+        showWordBtn.disabled = true;
+
+        currentWordText.textContent = "Игра началась!";
+    } else {
+
+    hideWordBtn.disabled = true;
+    showWordBtn.disabled = false;
+
+    currentPlayer += 1;
+    currentPlayerField.textContent = `Очередь игрока: ${currentPlayer}`;
+    currentWordText.textContent = "Тут будет слово";
+    }
 }
 
 function endTheGame(e){
@@ -66,4 +120,11 @@ function endTheGame(e){
 
     document.getElementById('second_section_id').classList.add('hidden');
     document.getElementById('first_section_id').classList.remove('hidden');
+
+    currentWordText.textContent = "Тут будет слово";
+    hideWordBtn.disabled = true;
+    showWordBtn.disabled = false;
+
+    currentPlayer = 1;
+    spyMassive = [];
 }

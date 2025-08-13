@@ -15,8 +15,8 @@ body {
 }
 
 
-#hidden{
-    display: none;
+.hidden{
+    display: none !important; 
 }
 
 .first_section {
@@ -211,7 +211,7 @@ button:active {
 
 @media (max-width: 750px){
     #not_buttons{
-        font-size: 0.9em;
+        font-size: 0.7em;
     }
 
     .box {
@@ -219,7 +219,8 @@ button:active {
     }
 
     select{
-        width: 8em;
+        width: 7em;
+        font-size: 0.7em;
     }
 
     .pair{
@@ -232,7 +233,7 @@ button:active {
 
     input{
         padding-top: 0;
-        font-size: 1.1em;
+        font-size: 0.8em;
     }
 
     .header i {

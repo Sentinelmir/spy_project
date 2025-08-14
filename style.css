@@ -71,6 +71,18 @@ label, input, select {
     
 }
 
+::picker(select) {
+  border: none;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+}
+
 input, select :nth-child(-n + 2) {
     width: 4em;
     font-family: 'Playfair Display SC', serif;
@@ -209,11 +221,16 @@ button:active {
 }
 
 .warning {
-    color: red;
+    color: red !important;
 }
 
 
 @media (max-width: 750px){
+.first_section {
+    max-height: 100dvh;
+    min-height: 100dvh;
+}
+
     #not_buttons{
         font-size: 0.7em;
     }
@@ -241,13 +258,15 @@ button:active {
     }
 
     .header i {
-    font-size: 11em; 
+    font-size: 10em; 
     color: rgb(143, 83, 89, 0.6);
     padding-bottom: 12px;
 }
 
     .section_two{
         font-size: 0.9em;
+        max-height: 100dvh;
+        min-height: 100dvh;
     }
 
     #start_new_game{

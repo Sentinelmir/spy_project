@@ -246,8 +246,12 @@ select[aria-invalid] {
     max-height: 100dvh;
     min-height: 100dvh;
     justify-content: flex-start;
-    margin-top: 1.5em;
+    margin-top: 1em;
+    gap: 0.7em;
 }
+    #startBtn {
+        margin-top: 15px;
+    }
 
     #not_buttons{
         font-size: 0.7em;

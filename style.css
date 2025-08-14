@@ -245,6 +245,8 @@ select[aria-invalid] {
 .first_section {
     max-height: 100dvh;
     min-height: 100dvh;
+    justify-content: flex-start;
+    margin-top: 3em;
 }
 
     #not_buttons{
@@ -275,7 +277,7 @@ select[aria-invalid] {
     }
 
     .header i {
-    font-size: 8em; 
+    font-size: 10em; 
     color: rgb(143, 83, 89, 0.6);
     padding-bottom: 12px;
 }

@@ -259,7 +259,6 @@ select[aria-invalid] {
         text-align: center;
         width: 6em;
         font-size: 0.7em;
-        padding-right: 0.5em; /* убираем запас под стрелку */
     }
 
     .pair{

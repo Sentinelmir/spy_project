@@ -86,7 +86,6 @@ select {
     cursor: pointer;
     text-align: center;
     text-align-last: center; /* Для некоторых браузеров */
-    padding-right: 0; /* убираем запас под стрелку */
 }
 
 select::-ms-expand {
@@ -260,6 +259,7 @@ select[aria-invalid] {
         text-align: center;
         width: 6em;
         font-size: 0.7em;
+        padding-right: 0.5em; /* убираем запас под стрелку */
     }
 
     .pair{

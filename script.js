@@ -59,6 +59,12 @@ newGameBtn.addEventListener('click', endTheGame);
 showWordBtn.addEventListener('click', showWordToPlayer);
 hideWordBtn.addEventListener('click', hideWordFromPlayer);
 
+function removeAttribute(){
+     themeSelector.removeAttribute('aria-invalid');
+     numberOfPlayers.removeAttribute('aria-invalid');
+     numberOfSpies.removeAttribute('aria-invalid');
+}
+
 
 function startNewGame(e){
     e.preventDefault();
@@ -67,37 +73,32 @@ function startNewGame(e){
     const spiesNumber = numberOfSpies.value.trim();
     const theme = themeSelector.value.trim();
 
-    if (Number(spiesNumber) >= Number(playersNumber)){
-        numberField.ariaInvalid = true;
-        return;
-    } else {
-        numberField.ariaInvalid = false;
-    }
+    let errorDetected = 0;
+
+    removeAttribute();
+
+    if (!playersNumber) {
+        console.log('Detected 1');
+        numberOfPlayers.setAttribute('aria-invalid', 'true');
+        errorDetected += 1;
+    } 
+    
+    if (Number(spiesNumber) >= Number(playersNumber) || !spiesNumber){
+        console.log('Detected 2');
+        numberOfSpies.setAttribute('aria-invalid', 'true');
+        errorDetected += 1;
+    } 
 
     if (!theme) {
+        console.log('Detected 3');
         themeSelector.setAttribute('aria-invalid', 'true');
+        errorDetected += 1;
+    } 
+
+    if (errorDetected>0){
         return;
-    } else {
-        themeSelector.removeAttribute('aria-invalid');
     }
     
-    if (!playersNumber) {
-        numberOfPlayers.setAttribute('aria-invalid', 'true');
-        return;
-    } else {
-        numberOfPlayers.removeAttribute('aria-invalid');
-    }
-
-    if (!spiesNumber) {
-        numberOfSpies.setAttribute('aria-invalid', 'true');
-        return;
-    } else {
-        numberOfSpies.removeAttribute('aria-invalid');
-    }
-
-    //if (!playersNumber || !spiesNumber) {
-        //return;
-    //  }
 
     document.getElementById('first_section_id').classList.add('hidden');
     document.getElementById('second_section_id').classList.remove('hidden');

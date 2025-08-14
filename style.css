@@ -280,6 +280,10 @@ select[aria-invalid] {
     padding-bottom: 12px;
 }
 
+    .header p{
+        font-size: 0.8em;
+    }
+
     .section_two{
         font-size: 0.9em;
         max-height: 100dvh;

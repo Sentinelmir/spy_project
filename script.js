@@ -10,7 +10,7 @@ let currentPlayer = 1;
 const currentPlayerField = document.querySelector('.current_player_p');
 let currentWordText = document.querySelector('.current_word_text');
 let spyMassive = [];
-let spiesText = document.querySelector('#spiesnumber #not_buttons');
+let spiesText = document.querySelector('#spiesnumber');
 
 const words = {
   places: [
@@ -41,6 +41,7 @@ function getRandomWord(category) {
   const randomIndex = getRandomInt(categoryWords.length);
   return categoryWords[randomIndex];
 }
+
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }

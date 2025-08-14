@@ -83,6 +83,10 @@ select {
   text-overflow: '';
 }
 
+select::-ms-expand {
+  display: none; 
+}
+
 input, select :nth-child(-n + 2) {
     width: 4em;
     font-family: 'Playfair Display SC', serif;
@@ -220,8 +224,8 @@ button:active {
     cursor: pointer;
 }
 
-.warning {
-    color: red !important;
+.warning * {
+    color: #D32D2D !important;
 }
 
 
@@ -240,7 +244,8 @@ button:active {
     }
 
     select{
-        width: 7em;
+        text-align: center;
+        width: 6em;
         font-size: 0.7em;
     }
 

@@ -257,6 +257,11 @@ button:active {
         padding-bottom: 0.3em;
     }
 
+    option {
+        text-align: center;
+    }
+
+
     input{
         padding-top: 0.1em;
         font-size: 0.8em;

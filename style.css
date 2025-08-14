@@ -76,15 +76,21 @@ label, input, select {
 }
 
 select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  text-indent: 1px;
-  text-overflow: '';
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+    width: 8em;
+    font-family: 'Playfair Display SC', serif;
+    cursor: pointer;
+    text-align: center;
+    text-align-last: center; /* Для некоторых браузеров */
+    padding-right: 0; /* убираем запас под стрелку */
 }
 
 select::-ms-expand {
-  display: none; 
+   display: none; 
 }
 
 input, select :nth-child(-n + 2) {
@@ -106,13 +112,6 @@ input {
     padding-top: 0;
 }
 
-select {
-    width: 8em;
-    font-family: 'Playfair Display SC', serif;
-}
-
-
-
 #startBtn {
     margin-top: 30px;
     padding: 15px 30px;
@@ -125,6 +124,10 @@ select {
     border-radius: 10px;
     cursor: pointer;
     transition: background 0.3s ease;
+}
+
+#startBtn:hover {
+    background-color: rgba(157, 69, 88, 0.7);
 }
 
 button:active {
@@ -184,7 +187,10 @@ button:active {
     box-sizing: border-box;
     justify-content: space-between;
     padding: 2em;
-    
+}
+
+.buttons_for_word button:hover {
+    background-color: rgba(157, 69, 88, 0.6);
 }
 
 .buttons_for_word button {
@@ -207,6 +213,14 @@ button:active {
     color: #514648;
 }
 
+input[aria-invalid] {
+    border: 1.5px solid #D32D2D;
+}
+
+select[aria-invalid] {
+    border: 1.5px solid #D32D2D;
+}
+
 #start_new_game{
     color: #A64F26;
     background-color: rgba(225, 105, 46, 0.4);
@@ -224,10 +238,9 @@ button:active {
     cursor: pointer;
 }
 
-.warning * {
-    color: #D32D2D !important;
+#start_new_game:hover {
+    background-color: rgba(225, 105, 46, 0.6);
 }
-
 
 @media (max-width: 750px){
 .first_section {
@@ -257,14 +270,9 @@ button:active {
         padding-bottom: 0.3em;
     }
 
-    option {
-        text-align: center;
-    }
-
-
     input{
         padding-top: 0.1em;
-        font-size: 0.8em;
+        font-size: 0.7em;
     }
 
     .header i {

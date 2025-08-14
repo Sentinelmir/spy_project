@@ -10,7 +10,7 @@ let currentPlayer = 1;
 const currentPlayerField = document.querySelector('.current_player_p');
 let currentWordText = document.querySelector('.current_word_text');
 let spyMassive = [];
-let spiesText = document.querySelector('#spiesnumber');
+let numberField = document.querySelector('#spies');
 
 const words = {
   places: [
@@ -68,15 +68,36 @@ function startNewGame(e){
     const theme = themeSelector.value.trim();
 
     if (Number(spiesNumber) >= Number(playersNumber)){
-        spiesText.classList.add('warning');
+        numberField.ariaInvalid = true;
         return;
     } else {
-        spiesText.classList.remove('warning');
+        numberField.ariaInvalid = false;
     }
 
-    if (!playersNumber || !spiesNumber || !theme) {
+    if (!theme) {
+        themeSelector.setAttribute('aria-invalid', 'true');
         return;
-      }
+    } else {
+        themeSelector.removeAttribute('aria-invalid');
+    }
+    
+    if (!playersNumber) {
+        numberOfPlayers.setAttribute('aria-invalid', 'true');
+        return;
+    } else {
+        numberOfPlayers.removeAttribute('aria-invalid');
+    }
+
+    if (!spiesNumber) {
+        numberOfSpies.setAttribute('aria-invalid', 'true');
+        return;
+    } else {
+        numberOfSpies.removeAttribute('aria-invalid');
+    }
+
+    //if (!playersNumber || !spiesNumber) {
+        //return;
+    //  }
 
     document.getElementById('first_section_id').classList.add('hidden');
     document.getElementById('second_section_id').classList.remove('hidden');

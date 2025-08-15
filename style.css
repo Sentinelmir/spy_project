@@ -161,21 +161,25 @@ button:active {
 }
 
 .current_word{
+    width: 80vw;
+    max-width: 600px;
     display: flex;
     align-items: center;
     align-content: center;
     text-align: center;
-    width: 1;
+    justify-content: center;
 }
 
 .current_word p{
+    flex: 1;
     color: #601843;
     background-color: rgba(157, 69, 88, 0.4);
     border-radius: 10px;
-    max-height: 8em;
-    padding: 3em;
+    padding: 3.5em;
     font-size: 1.5em;
-    
+    word-wrap: break-word;
+    width: 100%;
+    min-width: 8em;
 }
 
 .buttons_for_word{
@@ -302,5 +306,7 @@ select[aria-invalid] {
         color: rgb(255, 218, 221);
     }
 
-
+    .current_word p {
+        font-size: clamp(1em, 4vw, 1.5em);
+    }
 }
